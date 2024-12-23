@@ -2078,6 +2078,21 @@ function RayfieldLibrary:CreateWindow(Settings)
 			return DividerValue
 		end
 
+		-- Spacing
+		function Tab:CreateSpacing(SectionParent,Size)
+			local Spacing = Elements.Template.SectionSpacing:Clone()
+			Spacing.Visible = true
+			Spacing.Parent = TabPage
+
+			Spacing.Size = UDim2.fromOffset(475,Size or 6)
+
+			if SectionParent then
+				Spacing.Parent = SectionParent.Holder
+			else
+				Spacing.Parent = TabPage
+			end
+		end
+
 		-- Label
 		function Tab:CreateLabel(LabelText : string, Icon: number, Color : Color3, IgnoreTheme : boolean)
 			local LabelValue = {}
